@@ -58,25 +58,25 @@ describe('End to end testing of Form Validation', () => {
         cy.get('button').click()
         cy.get('.message-container').should('have.css', 'borderColor', 'rgb(0, 128, 0)')
     })
-    it('shows fail message after invalid Full name', () => {
+    it('shows validation message after invalid Full name', () => {
         cy.get('button').click()
         cy.get('#name:invalid').invoke('prop', 'validationMessage').should('contain', 'Please fill in this field')
 
     })
-    it('shows fail message after invalid Phone Number', () => {
+    it('shows validation message after invalid Phone Number', () => {
         LoginForm.fullName().type(FormData.name)
         cy.get('button').click()
         LoginForm.phoneNumber().type('123')
         cy.get('#phone:invalid').invoke('prop', 'validationMessage').should('contain', 'Please match the format requested')
     })
-    it('shows fail message after invalid Email address', () => {
+    it('shows validation message after invalid Email address', () => {
         LoginForm.fullName().type(FormData.name)
         LoginForm.phoneNumber().type(FormData.phone)
         cy.get('button').click()
         LoginForm.email().type(InvalidData.email)
         cy.get('#email:invalid').invoke('prop', 'validationMessage').should('contain', "Please include an '@' in the email address")
     })
-    it('shows fail message after invalid Website URL', () => {
+    it('shows validation message after invalid Website URL', () => {
         LoginForm.fullName().type(FormData.name)
         LoginForm.phoneNumber().type(FormData.phone)
         LoginForm.email().type(FormData.email)
@@ -85,7 +85,7 @@ describe('End to end testing of Form Validation', () => {
         cy.get('#website:invalid').invoke('prop', 'validationMessage').should('contain', "Please enter a URL.")
 
     })
-    it('shows fail message after invalid First Password', () => {
+    it('shows validation message after invalid First Password', () => {
         LoginForm.fullName().type(FormData.name)
         LoginForm.phoneNumber().type(FormData.phone)
         LoginForm.email().type(FormData.email)
@@ -94,7 +94,7 @@ describe('End to end testing of Form Validation', () => {
         cy.get('button').click()
         cy.get('#password1:invalid').invoke('prop', 'validationMessage').should('contain', "Please match the format requested.")
     })
-    it('shows fail message after invalid Second Password', () => {
+    it('shows validation message after invalid Second Password', () => {
         LoginForm.fullName().type(FormData.name)
         LoginForm.phoneNumber().type(FormData.phone)
         LoginForm.email().type(FormData.email)
