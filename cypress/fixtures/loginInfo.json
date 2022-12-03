@@ -1,0 +1,18 @@
+{
+  "valid": {
+    "name": "Bala",
+    "phone": "555-555-5555",
+    "email": "bala@gmail.com",
+    "website": "http://google.com",
+    "password": "Bala123456",
+    "passwordConfirm": "Bala123456"
+  },
+  "invalidEmail": {
+    "name": "Bala",
+    "phone": "555-555-5555",
+    "email": "balagmail.com",
+    "website": "http://google.com",
+    "password": "Bala123456",
+    "passwordConfirm": "Bala123456"
+  }
+}
