@@ -1,8 +1,7 @@
 /// <reference types="cypress" />
-// import { data } from 'cypress/types/jquery'
 import loginForm from './pageObjects/loginForm'
 
-describe('End to end testing of Form Validation', () => {
+describe('Form Validation', () => {
     let LoginForm
     beforeEach(() => {
         cy.visit('http://127.0.0.1:5500/')
@@ -16,7 +15,6 @@ describe('End to end testing of Form Validation', () => {
             InvalidData = data.invalidEmail
         })
     })
-
     it('shows success message after valid registration', () => {
         LoginForm.fullName().type(FormData.name)
         LoginForm.phoneNumber().type(FormData.phone)
@@ -28,7 +26,6 @@ describe('End to end testing of Form Validation', () => {
         cy.get('.message-container').contains('Successfully registered, congratulations !')
     })
     it('shows red borders when fields are empty', () => {
-
         LoginForm.fullName().should('have.css', 'borderColor', 'rgb(255, 0, 0)')
         LoginForm.phoneNumber().should('have.css', 'borderColor', 'rgb(255, 0, 0)')
         LoginForm.email().should('have.css', 'borderColor', 'rgb(255, 0, 0)')
